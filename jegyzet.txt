@@ -1,0 +1,10 @@
+
+termianl -> cd backend
+npm create vite@latest
+-react
+-javascript
+
+cd frontend
+npm install
+npm run build
+
