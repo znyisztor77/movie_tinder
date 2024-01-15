@@ -18,8 +18,14 @@ from django.contrib import admin
 from django.urls import path
 
 from movies import views
+from django.shortcuts import render
+
+def main(request):
+    return render(request, 'index.html')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/movies/', views.getMovies),
+    path('', main),
 ]
