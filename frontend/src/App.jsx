@@ -19,18 +19,32 @@ const App = () => {
     return "http://127.0.0.1:8000" + old
   }
 
+  const fixUrl = (oldUrl) => {
+    return oldUrl.replaceAll('static', 'assets')
+  }
+
+  const swipe = () =>{
+    if(movies.length > movieIndex + 1){
+      setMovieIndex(movieIndex => movieIndex+1)
+
+    }
+    
+    else{
+      window.alert('Elfogytak a filmek!')
+    }
+  }
   return (
     <div>
 
     {movies.length > 0 ?
-        <div className="card" style={{ backgroundImage: `url(${generateImageUrl(movies[movieIndex].poster_image)})` }}>
+        <div className="card" style={{ backgroundImage: `url(${(movies[movieIndex].poster_image.replaceAll('static', 'assets'))})` }}>
           <h2>{ movies[movieIndex].title }</h2>
         </div> :
         <div>Loading...</div>}
 
     <div className='buttons'>
-      <button>👍</button>
-      <button>😎</button>
+      <button onClick={() => swipe()}>👍</button>
+      <button onClick={() => swipe()}>😎</button>
     </div>
 
     </div>
